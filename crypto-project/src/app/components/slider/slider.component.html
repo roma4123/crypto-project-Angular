@@ -1,0 +1,11 @@
+<div class="slider">
+  <ng-container *ngFor="let item of items; let i = index">
+    <div @sliderFade class="slide" *ngIf="i == currentSlideIndex">
+      <div class="slide-bg">
+        <img class="slide-bg-image" src="{{ item }} " />
+      </div>
+    </div>
+  </ng-container>
+  <h1>Grow more &nbsp; invest now</h1>
+  <button>Start the Journey</button>
+</div>
