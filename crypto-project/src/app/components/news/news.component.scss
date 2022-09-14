@@ -1,0 +1,52 @@
+@import "../../styles/palette.scss";
+
+.wrapper {
+  font-family: "Roboto";
+  padding-top: 97px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #f1f2f2;
+  color: #2b2b2b;
+  .container {
+    width: 1080px;
+    h1 {
+      text-transform: uppercase;
+      cursor: pointer;
+      color: #0058aa;
+      align-self: flex-start;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 26.4px;
+      margin-bottom: 30px;
+      letter-spacing: 1.25px;
+    }
+    .news {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 352.33px 376.33px 351.33px;
+      padding: 32px 0;
+      border-top: 1px solid #cacaca;
+      .example-card {
+        &.right {
+          padding: 0 24px 0 0;
+          border-right: 1px solid #cacaca;
+        }
+
+        &.left {
+          padding: 0 0 0 24px;
+        }
+
+        &.middle {
+          padding: 0 24px;
+          border-right: 1px solid #cacaca;
+        }
+
+        img {
+          width: 327px;
+          height: 199px;
+        }
+      }
+    }
+  }
+}

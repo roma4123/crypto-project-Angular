@@ -39,12 +39,13 @@
 }
 
 h1 {
+  width: 100%;
   line-height: 125%;
   font-size: 50px;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
   letter-spacing: 4px;
   font-weight: 700;
   text-transform: uppercase;

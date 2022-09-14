@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 * {
   font-family: "Roboto", sans-serif;
   margin: 0;
@@ -27,7 +28,7 @@ section {
   display: block;
 }
 body {
-  line-height: 0;
+  line-height: 1;
 }
 ol,
 ul,
@@ -61,3 +62,6 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
