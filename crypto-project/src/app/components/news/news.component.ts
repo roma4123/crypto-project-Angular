@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IArticles } from 'src/app/models/news.models';
 import { NewsService } from 'src/app/services/news/news.service';
+import * as Aos from 'aos';
+
 
 @Component({
   selector: 'app-news',
@@ -13,6 +15,8 @@ export class NewsComponent implements OnInit {
   articles: IArticles[] = [];
 
   ngOnInit(): void {
+    //aos
+    Aos.init();
     this.newsService.getNews().subscribe((v) => {
       this.articles = v.articles;
       console.log(v.articles);
