@@ -37,6 +37,7 @@ li {
 }
 a {
   text-decoration: none;
+  color: inherit;
 }
 blockquote,
 q {
@@ -63,5 +64,11 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
