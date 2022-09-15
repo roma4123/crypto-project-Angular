@@ -10,9 +10,10 @@ import { NewsComponent } from './components/news/news.component';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SliderComponent, NewsComponent],
+  declarations: [AppComponent, HeaderComponent, SliderComponent, NewsComponent, MainPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
