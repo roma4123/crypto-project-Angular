@@ -11,9 +11,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { PriceDashboardComponent } from './components/prices/price-dashboard/price-dashboard.component';
+import { PriceReviewComponent } from './components/prices/price-review/price-review.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SliderComponent, NewsComponent, MainPageComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    SliderComponent,
+    NewsComponent,
+    MainPageComponent,
+    PriceDashboardComponent,
+    PriceReviewComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

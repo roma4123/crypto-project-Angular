@@ -39,6 +39,7 @@
               font-size: 18px;
               color: $nav-text-color;
               font-weight: 500;
+              cursor: pointer;
               &.active {
                 color: inherit;
               }
