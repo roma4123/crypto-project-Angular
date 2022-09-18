@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PriceService } from 'src/app/services/prices/price.service';
 import * as Aos from 'aos';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-price-review',
@@ -8,7 +9,7 @@ import * as Aos from 'aos';
   styleUrls: ['./price-review.component.scss'],
 })
 export class PriceReviewComponent implements OnInit {
-  constructor(private priceService: PriceService) {}
+  constructor(private priceService: PriceService, private router: Router) {}
 
   prices: any;
 
@@ -19,8 +20,8 @@ export class PriceReviewComponent implements OnInit {
       this.prices = v;
       console.log(v);
     });
-    this.priceService
-      .getGrpahicalCurrencyData('bitcoin')
-      .subscribe((v) => console.log(v));
+    // this.priceService
+    //   .getGrpahicalCurrencyData('bitcoin')
+    //   .subscribe((v) => console.log(v));
   }
 }

@@ -13,6 +13,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { PriceDashboardComponent } from './components/prices/price-dashboard/price-dashboard.component';
 import { PriceReviewComponent } from './components/prices/price-review/price-review.component';
+import { NumberSuffixPipe } from './pipes/number-suffix.pipe';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { PriceReviewComponent } from './components/prices/price-review/price-rev
     MainPageComponent,
     PriceDashboardComponent,
     PriceReviewComponent,
+    NumberSuffixPipe,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { PriceReviewComponent } from './components/prices/price-review/price-rev
     MatButtonModule,
     HttpClientModule,
     MatCardModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

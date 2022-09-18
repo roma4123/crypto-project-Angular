@@ -5,6 +5,10 @@
   align-items: center;
   padding: 128px 0;
 
+  .whole-block {
+    margin-bottom: 55px;
+  }
+
   h4 {
     color: #1199fa;
     font-size: 18px;
@@ -138,7 +142,7 @@
     color: white;
     transition: all 0.2s ease 0s;
     width: 201px;
-    margin-top: 65px;
+    // margin-top: 55px;
     text-align: center;
     &:hover {
       background-color: rgba(255, 255, 255, 0.1);

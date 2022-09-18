@@ -1,0 +1,126 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 130px;
+  width: 100%;
+  color: #0b1426;
+  //   background-color: #f5f6f9;
+
+  .content {
+    h1 {
+      margin-bottom: 15px;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      width: 90%;
+    }
+  }
+
+  table {
+    background-color: #fff;
+    text-indent: initial;
+    border-spacing: 2px;
+    font-size: 14px;
+    font-weight: 500;
+    button {
+      color: #fff;
+
+      background-color: #1199fa;
+      cursor: pointer;
+      border: 1px solid transparent;
+      //   width: 100%;
+      font-weight: bold;
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      line-height: 1.2;
+      padding: 5px 16px;
+      border-radius: 30px;
+      &:hover {
+        background-color: #36a4f3;
+      }
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      img {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+      }
+      .symbol {
+        color: #5d667b;
+        text-transform: uppercase;
+      }
+    }
+
+    tr {
+      height: 42.5px;
+      display: grid;
+      grid-template-columns: repeat(2, 0.5fr) 1.2fr repeat(6, 1fr);
+      place-items: center;
+      border-bottom: 1px solid #c9cfdd;
+
+      &.detail-rows {
+        cursor: pointer;
+        height: 68.2px;
+        &:hover {
+          background-color: rgba(17, 153, 250, 0.12);
+        }
+      }
+
+      td {
+        &.percent {
+          font-weight: bold;
+          &.low {
+            color: #e64b60;
+          }
+          &.high {
+            color: #20bca4;
+          }
+        }
+        &.chart {
+          svg {
+            width: 146px;
+            height: 30px;
+            .low {
+              stroke: #e64b60;
+            }
+            .high {
+              stroke: #20bca4;
+            }
+          }
+        }
+      }
+
+      th {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 500;
+        color: #0b1426;
+
+        &.th3 {
+          letter-spacing: 2px;
+        }
+      }
+
+      .th3 {
+        justify-self: start;
+      }
+    }
+  }
+}
+
+//tablerow hover
+// rgba(17, 153, 250, 0.12);
+
+.paginator {
+  height: 68px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #c9cfdd;
+  margin-bottom: 20px;
+}
