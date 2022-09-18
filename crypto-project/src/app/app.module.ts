@@ -15,6 +15,7 @@ import { PriceDashboardComponent } from './components/prices/price-dashboard/pri
 import { PriceReviewComponent } from './components/prices/price-review/price-review.component';
 import { NumberSuffixPipe } from './pipes/number-suffix.pipe';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { NftComponent } from './components/nft/nft.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     PriceDashboardComponent,
     PriceReviewComponent,
     NumberSuffixPipe,
+    NftComponent,
   ],
   imports: [
     BrowserModule,

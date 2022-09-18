@@ -12,14 +12,15 @@ export class PriceReviewComponent implements OnInit {
   constructor(private priceService: PriceService, private router: Router) {}
 
   prices: any;
-
   ngOnInit(): void {
     Aos.init();
 
     this.priceService.getTrendingCurrency().subscribe((v) => {
       this.prices = v;
-      console.log(v);
+      // console.log(v);
     });
+ 
+
     // this.priceService
     //   .getGrpahicalCurrencyData('bitcoin')
     //   .subscribe((v) => console.log(v));

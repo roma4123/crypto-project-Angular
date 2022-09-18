@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { NewsComponent } from './components/news/news.component';
+import { NftComponent } from './components/nft/nft.component';
 import { PriceDashboardComponent } from './components/prices/price-dashboard/price-dashboard.component';
 
 const routes: Routes = [
@@ -9,6 +10,7 @@ const routes: Routes = [
   { path: 'news', component: NewsComponent },
   { path: 'main', component: MainPageComponent },
   { path: 'prices', component: PriceDashboardComponent },
+  {path: 'nfts', component: NftComponent}
 ];
 
 @NgModule({
