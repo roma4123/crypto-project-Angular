@@ -1,83 +1,87 @@
 <div class="wrapper">
-  <div class="container">
-    <h1>WHAT'S TRENDING</h1>
-    <div class="news">
+  <ng-container *ngIf="articles.length">
+    <div class="container">
+      <h1>WHAT'S TRENDING</h1>
+      <div class="news">
+        <ng-container *ngFor="let article of articles; let i = index">
+          <ng-container *ngIf="i <= 5">
+            <div
+              data-aos="fade-up"
+              data-aos-anchor-placement="top-bottom"
+              class="example-card"
+              [ngClass]="{
+                right: (i + 1) % 3 === 1,
+                middle: (i + 1) % 3 === 2,
+                left: (i + 1) % 3 === 0
+              }"
+            >
+              <a href="{{ article.url }}" target="_blank">
+                <img
+                  [src]="
+                    article.urlToImage || '../../../assets/slider-pic-1.png'
+                  "
+                  [alt]="article.description"
+                />
+              </a>
+
+              <div class="content-text">
+                <p class="author">{{ article.author }}</p>
+                <h2 class="title">
+                  <a href="{{ article.url }}" target="_blank">{{
+                    article.title
+                  }}</a>
+                </h2>
+                <p class="date">
+                  <span><i class="far fa-calendar"></i></span>
+                  {{ article.publishedAt | date }}
+                </p>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1 class="all-stories">ALL STORIES</h1>
       <ng-container *ngFor="let article of articles; let i = index">
-        <ng-container *ngIf="i <= 5">
-          <div
-            data-aos="fade-up"
-            data-aos-anchor-placement="top-bottom"
-            class="example-card"
-            [ngClass]="{
-              right: (i + 1) % 3 === 1,
-              middle: (i + 1) % 3 === 2,
-              left: (i + 1) % 3 === 0
-            }"
-          >
+        <ng-container *ngIf="i > 5 && i < 5 + maxPost">
+          <div class="big-card" data-aos="fade-right" data-aos-duration="900">
             <a href="{{ article.url }}" target="_blank">
               <img
                 [src]="article.urlToImage || '../../../assets/slider-pic-1.png'"
                 [alt]="article.description"
               />
             </a>
-
             <div class="content-text">
-              <p class="author">{{ article.author }}</p>
-              <h2 class="title">
+              <p class="source">
+                <span>{{ article.source.name }}</span> -
+                {{ article.publishedAt | date }}
+              </p>
+              <!-- <p class="date">
+                <span><i class="far fa-calendar"></i></span>
+                {{ article.publishedAt | date }}
+              </p> -->
+              <h3 class="title">
                 <a href="{{ article.url }}" target="_blank">{{
                   article.title
                 }}</a>
-              </h2>
-              <p class="date">
-                <span><i class="far fa-calendar"></i></span>
-                {{ article.publishedAt | date }}
-              </p>
+              </h3>
+              <p class="desc">{{ article.description }}</p>
             </div>
           </div>
         </ng-container>
       </ng-container>
     </div>
-  </div>
-
-  <div class="container">
-    <h1 class="all-stories">ALL STORIES</h1>
-    <ng-container *ngFor="let article of articles; let i = index">
-      <ng-container *ngIf="i > 5 && i < 5 + maxPost">
-        <div class="big-card" data-aos="fade-right" data-aos-duration="900">
-          <a href="{{ article.url }}" target="_blank">
-            <img
-              [src]="article.urlToImage || '../../../assets/slider-pic-1.png'"
-              [alt]="article.description"
-            />
-          </a>
-          <div class="content-text">
-            <p class="source">
-              <span>{{ article.source.name }}</span> -
-              {{ article.publishedAt | date }}
-            </p>
-            <!-- <p class="date">
-              <span><i class="far fa-calendar"></i></span>
-              {{ article.publishedAt | date }}
-            </p> -->
-            <h3 class="title">
-              <a href="{{ article.url }}" target="_blank">{{
-                article.title
-              }}</a>
-            </h3>
-            <p class="desc">{{ article.description }}</p>
-          </div>
-        </div>
-      </ng-container>
+    <ng-container *ngIf="maxPost >= 100">
+      <h3 class="end-of-news">thats all for today</h3>
     </ng-container>
-  </div>
-  <ng-container *ngIf="maxPost >= 100">
-    <h3 class="end-of-news">thats all for today</h3>
-  </ng-container>
-  <ng-container *ngIf="maxPost < 100">
-    <div class="wrapper-btn">
-      <div class="container-button" role="button" (click)="showMore()">
-        see more stories
+    <ng-container *ngIf="maxPost < 100">
+      <div class="wrapper-btn">
+        <div class="container-button" role="button" (click)="showMore()">
+          see more stories
+        </div>
       </div>
-    </div>
+    </ng-container>
   </ng-container>
 </div>

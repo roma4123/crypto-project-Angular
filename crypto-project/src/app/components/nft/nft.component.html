@@ -9,7 +9,10 @@
           <div class="card-text">
             <p>{{ nft.author }}</p>
             <h1>{{ nft.title }}</h1>
-            <h3>$ &nbsp;{{ nft.price }}</h3>
+            <div class="price">
+              <span>$</span>
+              <h3>{{ nft.price }}</h3>
+            </div>
             <button>Buy</button>
           </div>
         </div>
