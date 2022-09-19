@@ -6,11 +6,26 @@ import { NftComponent } from './components/nft/nft.component';
 import { PriceDashboardComponent } from './components/prices/price-dashboard/price-dashboard.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
-  { path: 'news', component: NewsComponent },
-  { path: 'main', component: MainPageComponent },
-  { path: 'prices', component: PriceDashboardComponent },
-  {path: 'nfts', component: NftComponent}
+  { 
+    path: '',
+    redirectTo: 'main', 
+    pathMatch: 'full' },
+  { 
+    path: 'news', 
+    component: NewsComponent 
+  },
+  { 
+    path: 'main', 
+    component: MainPageComponent 
+  },
+  { 
+    path: 'prices',
+     component: PriceDashboardComponent 
+  },
+  {
+    path: 'nfts', 
+    component: NftComponent
+  }
 ];
 
 @NgModule({

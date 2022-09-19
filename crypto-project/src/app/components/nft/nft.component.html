@@ -3,19 +3,14 @@
     <h1>Buy Your Favorite NFTs</h1>
 
     <div class="card-wrapper">
-      <ng-container *ngFor="let nft of nfts; let i = index">
+      <ng-container *ngFor="let nft of nftArr$ | async">
         <div class="card">
-          <img
-            [src]="
-              nft.attributes.image_preview_large_url ||
-              '../../../assets/slider-pic-5.png'
-            "
-            alt="hhtps//:google.com/img/2"
-          />
+          <img [src]="nft.img_src" alt="hhtps//:google.com/img/2" />
           <div class="card-text">
-            <h3>{{ nft.attributes.name }}</h3>
-            <p>Unique Owners - {{ nft.attributes.unique_owners }}</p>
-            <p class="description">{{ nft.attributes.description }}</p>
+            <p>{{ nft.author }}</p>
+            <h1>{{ nft.title }}</h1>
+            <h3>$ &nbsp;{{ nft.price }}</h3>
+            <button>Buy</button>
           </div>
         </div>
       </ng-container>

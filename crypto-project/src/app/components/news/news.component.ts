@@ -26,5 +26,7 @@ export class NewsComponent implements OnInit {
       this.articles = v.articles;
       console.log(v.articles);
     });
+
+
   }
 }

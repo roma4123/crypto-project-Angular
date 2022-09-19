@@ -15,8 +15,12 @@
             }"
           >
             <a href="{{ article.url }}" target="_blank">
-              <img [src]="article.urlToImage" [alt]="article.description" />
+              <img
+                [src]="article.urlToImage || '../../../assets/slider-pic-1.png'"
+                [alt]="article.description"
+              />
             </a>
+
             <div class="content-text">
               <p class="author">{{ article.author }}</p>
               <h2 class="title">
@@ -41,7 +45,10 @@
       <ng-container *ngIf="i > 5 && i < 5 + maxPost">
         <div class="big-card" data-aos="fade-right" data-aos-duration="900">
           <a href="{{ article.url }}" target="_blank">
-            <img [src]="article.urlToImage" [alt]="article.description" />
+            <img
+              [src]="article.urlToImage || '../../../assets/slider-pic-1.png'"
+              [alt]="article.description"
+            />
           </a>
           <div class="content-text">
             <p class="source">
