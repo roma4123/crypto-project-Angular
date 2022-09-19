@@ -11,19 +11,20 @@
     data-aos-anchor-placement="top-bottom"
     class="container-nft"
   >
-    <h1 routerLink="/nfts">BUY YOUR FAVORITE NFT's</h1>
-    <div routerLink="/nfts" class="nfts">
-      <ng-container *ngFor="let item of items; let i = index">
-        <div @sliderFade class="slide" *ngIf="i == currentSlideIndex">
-          <div class="slide-bg">
-            <img class="slide-bg-image" src="{{ item }} " />
+    <ng-container *ngIf="items.length">
+      <h1 routerLink="/nfts">BUY YOUR FAVORITE NFT's</h1>
+      <div routerLink="/nfts" class="nfts">
+        <ng-container *ngFor="let item of items; let i = index">
+          <div @sliderFade class="slide" *ngIf="i == currentSlideIndex">
+            <div class="slide-bg">
+              <img class="slide-bg-image" src="{{ item }} " />
+            </div>
           </div>
-        </div>
-      </ng-container>
-    </div>
+        </ng-container>
+      </div>
+    </ng-container>
   </div>
-</div>
-
-<div class="news">
-  <app-news></app-news>
+  <div class="news">
+    <app-news></app-news>
+  </div>
 </div>

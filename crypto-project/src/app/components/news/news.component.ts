@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IArticles } from 'src/app/models/news.models';
 import { NewsService } from 'src/app/services/news/news.service';
 import * as Aos from 'aos';
@@ -8,7 +8,7 @@ import * as Aos from 'aos';
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss'],
 })
-export class NewsComponent implements OnInit {
+export class NewsComponent implements OnInit, OnDestroy {
   constructor(private newsService: NewsService) {}
 
   articles: IArticles[] = [];
@@ -26,7 +26,9 @@ export class NewsComponent implements OnInit {
       this.articles = v.articles;
       console.log(v.articles);
     });
+  }
 
-
+  ngOnDestroy(): void {
+    window.scroll(0, 0);
   }
 }

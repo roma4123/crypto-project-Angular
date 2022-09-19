@@ -17,7 +17,7 @@ export class PriceDashboardComponent implements OnInit, OnDestroy {
   pageSize = 1;
 
   ngOnInit(): void {
-    window.scroll(0, 0);
+    // window.scroll(0, 0);
 
     // this.priceService.getCurrency().subscribe((v) => console.log(v));
     // this.priceService.getTrendingCurrency().subscribe((v) => console.log(v));
