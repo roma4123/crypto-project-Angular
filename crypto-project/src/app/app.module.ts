@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,7 @@ import { PriceReviewComponent } from './components/prices/price-review/price-rev
 import { NumberSuffixPipe } from './pipes/number-suffix.pipe';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NftComponent } from './components/nft/nft.component';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,8 @@ import { NftComponent } from './components/nft/nft.component';
     HttpClientModule,
     MatCardModule,
     MatPaginatorModule,
+    Ng2SearchPipeModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

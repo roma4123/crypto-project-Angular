@@ -24,7 +24,7 @@ export class NewsComponent implements OnInit, OnDestroy {
     Aos.init();
     this.newsService.getNews().subscribe((v) => {
       this.articles = v.articles;
-      console.log(v.articles);
+      // console.log(v.articles);
     });
   }
 

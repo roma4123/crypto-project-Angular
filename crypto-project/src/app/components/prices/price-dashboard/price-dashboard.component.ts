@@ -11,10 +11,10 @@ export class PriceDashboardComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {}
 
   coins: any;
-
   pageIndex = 10;
-
   pageSize = 1;
+
+  filterTerm!: string;
 
   ngOnInit(): void {
     // window.scroll(0, 0);

@@ -46,8 +46,127 @@
           // border: 3px solid #0058aa;
           border-radius: 8px;
           height: 70%;
-          width: 70%;
+          width: 60%;
         }
+      }
+    }
+  }
+}
+
+.pic {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 800px;
+  background: url(https://crypto.com/static/exchangeGlobal-cb1534638b50402d13c683fbfe9abf51.png)
+    center center / cover no-repeat;
+  background-image: url(https://crypto.com/static/exchangeGlobal-cb1534638b50402d13c683fbfe9abf51.png);
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+
+  .container {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      margin-bottom: 13px;
+      margin-top: 60px;
+      color: #000;
+      text-align: center;
+      font-size: 48px;
+      line-height: 125%;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+    }
+    .market {
+      p {
+        font-size: 18px;
+        line-height: 115%;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: #1199fa;
+        text-align: center;
+        margin-bottom: 13px;
+      }
+
+      .appstore {
+        display: flex;
+        .right,
+        .left {
+          margin-right: 17px;
+          height: 51px;
+          width: 153px;
+          img {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  width: 100%;
+  height: 400px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0b1426;
+
+  .copy-right {
+    width: 80%;
+    color: #a0a9be;
+    border-top: 1px solid #7d7d7d;
+    margin-top: 30px;
+    padding-top: 24px;
+    font-size: 11px;
+  }
+
+  .content {
+    color: #f4f4f4;
+    width: 80%;
+    height: 134px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    div {
+      margin-bottom: 32px;
+      h4 {
+        font-size: 18px;
+        line-height: 145%;
+        font-weight: 600;
+
+        margin-bottom: 16px;
+      }
+
+      p {
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 145%;
+        letter-spacing: 0.03em;
+        font-weight: 400;
+        margin-top: -3.5px;
+        color: #eaeef4;
+        margin-bottom: 4px;
+      }
+      i {
+        cursor: pointer;
+        margin-top: 13px;
+        color: #7d7d7d;
+        display: block;
       }
     }
   }
