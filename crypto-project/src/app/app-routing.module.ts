@@ -4,6 +4,7 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { NewsComponent } from './components/news/news.component';
 import { NftComponent } from './components/nft/nft.component';
 import { PriceDashboardComponent } from './components/prices/price-dashboard/price-dashboard.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { 
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'nfts', 
     component: NftComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   }
 ];
 

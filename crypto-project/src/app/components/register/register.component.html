@@ -1,1 +1,17 @@
-<p>register works!</p>
+<div class="wrapper">
+  <div class="container">
+    <form [formGroup]="registerForm">
+      <div class="fullname" formGroupName="fullname">
+        <input type="text" formControlName="firstname" />
+        <input type="text" formControlName="lastname" />
+      </div>
+      <input type="email" formControlName="email" />
+      <div class="passwords" formGroupName="passowrds">
+        <input type="password" formControlName="password" />
+        <input type="confirmpassword" formControlName="confirmpassword" />
+      </div>
+
+      <button>Register</button>
+    </form>
+  </div>
+</div>

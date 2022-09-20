@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -10,14 +9,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NewsComponent } from './components/news/news.component';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-import { MatCardModule } from '@angular/material/card';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { PriceDashboardComponent } from './components/prices/price-dashboard/price-dashboard.component';
 import { PriceReviewComponent } from './components/prices/price-review/price-review.component';
 import { NumberSuffixPipe } from './pipes/number-suffix.pipe';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { NftComponent } from './components/nft/nft.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2SearchPipeModule  } from 'ng2-search-filter';
 import { RegisterComponent } from './components/register/register.component';
 @NgModule({
   declarations: [
@@ -38,10 +35,9 @@ import { RegisterComponent } from './components/register/register.component';
     BrowserAnimationsModule,
     MatButtonModule,
     HttpClientModule,
-    MatCardModule,
-    MatPaginatorModule,
     Ng2SearchPipeModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

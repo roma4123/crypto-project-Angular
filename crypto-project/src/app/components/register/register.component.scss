@@ -1,0 +1,30 @@
+.wrapper {
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(6, 17, 33);
+  .container {
+    margin-top: 200px;
+    width: 448px    ;
+    height: 524px;
+    border-radius: 18px;
+    padding: 40px 40px 0 40px;
+    border: 1px solid rgba(138, 145, 158, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    form {
+      .fullname {
+        display: flex;
+        justify-content: center;
+      }
+      .passowrds {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
