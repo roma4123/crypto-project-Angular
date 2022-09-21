@@ -1,17 +1,127 @@
 <div class="wrapper">
   <div class="container">
+    <h1>Sign Up</h1>
     <form [formGroup]="registerForm">
       <div class="fullname" formGroupName="fullname">
-        <input type="text" formControlName="firstname" />
-        <input type="text" formControlName="lastname" />
-      </div>
-      <input type="email" formControlName="email" />
-      <div class="passwords" formGroupName="passowrds">
-        <input type="password" formControlName="password" />
-        <input type="confirmpassword" formControlName="confirmpassword" />
-      </div>
+        <div>
+          <p><span>*</span> First Name</p>
+          <input
+            type="text"
+            formControlName="firstname"
+            placeholder="First Name"
+          />
+        </div>
 
-      <button>Register</button>
+        <div>
+          <p><span>*</span> Last Name</p>
+          <input
+            type="text"
+            formControlName="lastname"
+            placeholder="Last Name"
+          />
+        </div>
+      </div>
+      <ng-container
+        *ngIf="
+          (!registerForm.get('fullname.firstname')?.valid &&
+            registerForm.get('fullname.firstname')?.touched) ||
+          (!registerForm.get('fullname.lastname')?.valid &&
+            registerForm.get('fullname.lastname')?.touched)
+        "
+      >
+        <p class="error">Both fields are required.</p>
+        <p class="error">Names must be alphabetical characters.</p>
+      </ng-container>
+      <div>
+        <p><span>*</span> Email</p>
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="example@gmail.com"
+        />
+      </div>
+      <ng-container
+        *ngIf="
+          registerForm.get('email')?.invalid &&
+          registerForm.get('email')?.touched
+        "
+      >
+        <p class="error">Enter correct email</p>
+      </ng-container>
+      <div class="passwords" formGroupName="passwords">
+        <div>
+          <p><span>*</span> Password</p>
+          <ng-container *ngIf="!showPassword; else show">
+            <div class="pass">
+              <input
+                type="password"
+                formControlName="password"
+                placeholder="Password"
+              />
+              <i class="fa-solid fa-eye-slash" (click)="onShowPassword()"></i>
+            </div>
+          </ng-container>
+          <ng-template #show>
+            <div class="pass">
+              <input
+                type="text"
+                formControlName="password"
+                placeholder="Password"
+              />
+              <i class="fa-solid fa-eye" (click)="onShowPassword()"></i>
+            </div>
+          </ng-template>
+          <ng-container
+            *ngIf="
+              registerForm.get('passwords.password')?.invalid &&
+              registerForm.get('passwords.password')?.touched
+            "
+          >
+            <p class="error">Min length 8 is required</p>
+          </ng-container>
+        </div>
+        <div>
+          <p><span>*</span> Confirm Password</p>
+          <ng-container *ngIf="!showPassword; else showConfirm">
+            <div class="pass">
+              <input
+                type="password"
+                formControlName="confirmpassword"
+                placeholder="Confirm Password"
+              />
+              <i class="fa-solid fa-eye-slash" (click)="onShowPassword()"></i>
+            </div>
+          </ng-container>
+          <ng-template #showConfirm>
+            <div class="pass">
+              <input
+                type="text"
+                formControlName="confirmpassword"
+                placeholder="Confirm Password"
+              />
+              <i class="fa-solid fa-eye" (click)="onShowPassword()"></i>
+            </div>
+          </ng-template>
+          <ng-container
+            *ngIf="
+              registerForm.get('passwords.password')?.value !==
+                registerForm.get('passwords.confirmpassword')?.value &&
+              registerForm.get('passwords.confirmpassword')?.touched
+            "
+          >
+            <p class="error">Passwords don't match</p>
+          </ng-container>
+        </div>
+      </div>
+      <button
+        [disabled]="
+          registerForm.invalid ||
+          registerForm.get('passwords.password')?.value !==
+            registerForm.get('passwords.confirmpassword')?.value
+        "
+      >
+        Create account
+      </button>
     </form>
   </div>
 </div>

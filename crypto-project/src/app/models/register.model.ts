@@ -4,7 +4,7 @@ export interface IFullnameFormgroup{
     lastname: FormControl<string>
 }
 
-export interface IPassowrdsFormgroup{
+export interface IPasswordsFormgroup{
     password: FormControl<string>
     confirmpassword: FormControl<string>
 }
@@ -12,7 +12,7 @@ export interface IPassowrdsFormgroup{
 export interface IRegisterForm{
     fullname: FormGroup<IFullnameFormgroup>
     email: FormControl<string>
-    passwords: FormGroup<IPassowrdsFormgroup>
+    passwords: FormGroup<IPasswordsFormgroup>
     
 
 }

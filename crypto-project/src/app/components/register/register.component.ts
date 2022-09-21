@@ -5,7 +5,7 @@ import {
   Validators,
 } from '@angular/forms';
 import {
-  IPassowrdsFormgroup,
+  IPasswordsFormgroup,
   IRegisterForm,
 } from 'src/app/models/register.model';
 import { matchValidator } from 'src/app/validators/password.validator';
@@ -16,6 +16,8 @@ import { matchValidator } from 'src/app/validators/password.validator';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+  showPassword = false;
+
   registerForm: FormGroup<IRegisterForm> = new FormGroup({
     fullname: new FormGroup({
       firstname: new FormControl<string>('', {
@@ -31,7 +33,7 @@ export class RegisterComponent implements OnInit {
       nonNullable: true,
       validators: [Validators.required, Validators.email],
     }),
-    passwords: new FormGroup<IPassowrdsFormgroup>({
+    passwords: new FormGroup<IPasswordsFormgroup>({
       password: new FormControl<string>('', {
         nonNullable: true,
         validators: [Validators.required, Validators.minLength(8)],
@@ -39,7 +41,7 @@ export class RegisterComponent implements OnInit {
       ),
       confirmpassword: new FormControl<string>('', {
         nonNullable: true,
-        validators: [Validators.required, Validators.minLength(8)],
+        validators: [Validators.required],
       }),
     }),
   },[matchValidator('password', 'confirmpassword')]
@@ -48,4 +50,11 @@ export class RegisterComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  public onShowPassword(): void{
+    this.showPassword = !this.showPassword;
+    setTimeout(() => {
+      this.showPassword = false
+    }, 4000);
+  }
 }
