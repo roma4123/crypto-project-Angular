@@ -5,32 +5,38 @@ import { NewsComponent } from './components/news/news.component';
 import { NftComponent } from './components/nft/nft.component';
 import { PriceDashboardComponent } from './components/prices/price-dashboard/price-dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 const routes: Routes = [
-  { 
+  {
     path: '',
-    redirectTo: 'main', 
-    pathMatch: 'full' },
-  { 
-    path: 'news', 
-    component: NewsComponent 
-  },
-  { 
-    path: 'main', 
-    component: MainPageComponent 
-  },
-  { 
-    path: 'prices',
-     component: PriceDashboardComponent 
+    redirectTo: 'main',
+    pathMatch: 'full',
   },
   {
-    path: 'nfts', 
-    component: NftComponent
+    path: 'news',
+    component: NewsComponent,
+  },
+  {
+    path: 'main',
+    component: MainPageComponent,
+  },
+  {
+    path: 'prices',
+    component: PriceDashboardComponent,
+  },
+  {
+    path: 'nfts',
+    component: NftComponent,
   },
   {
     path: 'register',
-    component: RegisterComponent
-  }
+    component: RegisterComponent,
+  },
+  {
+    path: 'signin',
+    component: SignInComponent,
+  },
 ];
 
 @NgModule({

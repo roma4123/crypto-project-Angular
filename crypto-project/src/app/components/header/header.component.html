@@ -1,6 +1,6 @@
 <div class="navbar-container">
   <div class="content">
-    <h1 (click)="scroll()" routerLink="/main">Crypto</h1>
+    <h1 (click)="scroll()" routerLink="/main">TMTK <span>.</span></h1>
     <div class="nav-lang">
       <nav>
         <ul>
@@ -9,7 +9,16 @@
           <li><a routerLink="/news" routerLinkActive="active">News</a></li>
         </ul>
       </nav>
-      <h2>language</h2>
+      <nav class="sign-btns">
+        <ul>
+          <li>
+            <a routerLink="/signin">Sign in</a>
+          </li>
+          <li>
+            <a routerLink="/register">Sign up</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </div>

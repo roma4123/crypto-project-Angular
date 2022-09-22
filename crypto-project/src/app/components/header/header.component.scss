@@ -16,12 +16,35 @@
     justify-content: space-between;
     align-items: center;
     h1 {
-      font-size: 23px;
+      font-size: 28px;
+      font-family: "Dancing Script";
+      font-weight: bold;
       cursor: pointer;
+      letter-spacing: 0.08em;
+      span {
+        color: rgb(240, 0, 0);
+      }
     }
     .nav-lang {
       display: flex;
       align-items: center;
+
+      .sign-btns {
+        margin-left: 50px;
+        letter-spacing: 0.03em;
+        ul {
+          li:nth-child(2) {
+            a {
+              color: #0784f9;
+            }
+          }
+          li:nth-child(1) {
+            a {
+              color: inherit;
+            }
+          }
+        }
+      }
 
       h2 {
         margin-left: 30px;

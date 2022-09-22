@@ -16,6 +16,7 @@ import { NumberSuffixPipe } from './pipes/number-suffix.pipe';
 import { NftComponent } from './components/nft/nft.component';
 import { Ng2SearchPipeModule  } from 'ng2-search-filter';
 import { RegisterComponent } from './components/register/register.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { RegisterComponent } from './components/register/register.component';
     NumberSuffixPipe,
     NftComponent,
     RegisterComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
