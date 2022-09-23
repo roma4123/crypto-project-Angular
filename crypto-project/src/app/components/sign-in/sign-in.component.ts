@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ISigninform } from 'src/app/models/register.model';
+import { DatabaseService } from 'src/app/services/database/database.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -19,7 +20,14 @@ export class SignInComponent implements OnInit {
     }),
   });
 
-  constructor() {}
+  constructor(private database: DatabaseService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.database.getUsers().subscribe((v) => console.log(v));
+  }
+
+  public logIn() {
+    // this.database.saveUser(this.signinform.value as unknown as ISigninform);
+    // .subscribe((v) => console.log(this.signinform.value));
+  }
 }
