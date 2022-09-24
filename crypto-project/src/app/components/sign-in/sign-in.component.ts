@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { catchError, of, tap } from 'rxjs';
 import { ISigninform } from 'src/app/models/register.model';
 import { DatabaseService } from 'src/app/services/database/database.service';
 
@@ -20,14 +21,22 @@ export class SignInComponent implements OnInit {
     }),
   });
 
-  constructor(private database: DatabaseService) {}
+  constructor(private databaseService: DatabaseService) {}
 
   ngOnInit(): void {
-    this.database.getUsers().subscribe((v) => console.log(v));
+    // this.databaseService.getUsers().subscribe((v) => console.log(v));
   }
 
-  public logIn() {
-    // this.database.saveUser(this.signinform.value as unknown as ISigninform);
-    // .subscribe((v) => console.log(this.signinform.value));
+  public logIn(): void {
+    let email = this.signinform.value.email;
+    let password = this.signinform.value.password;
+    this.signinform.reset();
+    this.databaseService.login(email as string, password as string).pipe(
+      tap(v => console.log(v)),
+      catchError(e => {
+        console.log(e);
+        return of(null);  
+      })
+    ).subscribe();
   }
 }

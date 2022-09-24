@@ -1,9 +1,11 @@
+import { formatCurrency } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, of, tap } from 'rxjs';
 import {
   IPasswordsFormgroup,
+  IRegisteredUser,
   IRegisterForm,
 } from 'src/app/models/register.model';
 import { DatabaseService } from 'src/app/services/database/database.service';
@@ -58,19 +60,26 @@ export class RegisterComponent implements OnInit {
     }, 4000);
   }
 
-  public onSubmit() {
-    this.database
-      .saveUser2(this.registerForm.value as unknown as IRegisterForm)
-      .pipe(
-        tap((user) => {
-          console.log(this.registerForm.value);
-          // this.registerForm.reset();
-          this.router.navigate(['/signin']);
-        }),
-        catchError((err) => {
-          return of(0);
-        })
-      )
-      .subscribe();
+  public onSubmit(): void {
+    if(!this.registerForm.valid){
+      return;
+    }
+    const email = this.registerForm.value.email;
+    const password = this.registerForm.value.passwords?.password;
+    const userBody: IRegisteredUser = {
+      email: email as string,
+      fullname: this.registerForm.value.fullname as {firstname:  string, lastname: string},
+      balance: 10000
+    }
+    
+    this.database.signUp(email as string, password as string, userBody).pipe(
+      tap(v=> console.log(v)),
+      catchError(e => {
+        console.log(e);
+        return of(null);
+      })
+    ).subscribe();
+    this.registerForm.reset();
+
   }
 }

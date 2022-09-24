@@ -29,7 +29,6 @@ export class SliderComponent implements OnInit {
   }
   items: any[] = [
     '../../../assets/slider-pic-5.png',
-
     '../../../assets/slider-pic-2.png',
     '../../../assets/slider-pic-1.png',
 
