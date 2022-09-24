@@ -4,6 +4,7 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { NewsComponent } from './components/news/news.component';
 import { NftComponent } from './components/nft/nft.component';
 import { PriceDashboardComponent } from './components/prices/price-dashboard/price-dashboard.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'signin',
     component: SignInComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
   },
 ];
 

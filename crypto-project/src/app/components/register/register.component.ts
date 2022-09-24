@@ -61,25 +61,30 @@ export class RegisterComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    if(!this.registerForm.valid){
+    if (!this.registerForm.valid) {
       return;
     }
     const email = this.registerForm.value.email;
     const password = this.registerForm.value.passwords?.password;
     const userBody: IRegisteredUser = {
       email: email as string,
-      fullname: this.registerForm.value.fullname as {firstname:  string, lastname: string},
-      balance: 10000
-    }
-    
-    this.database.signUp(email as string, password as string, userBody).pipe(
-      tap(v=> console.log(v)),
-      catchError(e => {
-        console.log(e);
-        return of(null);
-      })
-    ).subscribe();
-    this.registerForm.reset();
+      fullname: this.registerForm.value.fullname as {
+        firstname: string;
+        lastname: string;
+      },
+      balance: 10000,
+    };
 
+    this.database
+      .signUp(email as string, password as string, userBody)
+      .pipe(
+        catchError((e) => {
+          console.log(e);
+          return of(null);
+        })
+      )
+      .subscribe();
+
+    this.registerForm.reset();
   }
 }

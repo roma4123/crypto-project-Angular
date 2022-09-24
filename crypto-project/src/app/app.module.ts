@@ -14,9 +14,10 @@ import { PriceDashboardComponent } from './components/prices/price-dashboard/pri
 import { PriceReviewComponent } from './components/prices/price-review/price-review.component';
 import { NumberSuffixPipe } from './pipes/number-suffix.pipe';
 import { NftComponent } from './components/nft/nft.component';
-import { Ng2SearchPipeModule  } from 'ng2-search-filter';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RegisterComponent } from './components/register/register.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import { ProfileComponent } from './components/profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     NftComponent,
     RegisterComponent,
     SignInComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     HttpClientModule,
     Ng2SearchPipeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

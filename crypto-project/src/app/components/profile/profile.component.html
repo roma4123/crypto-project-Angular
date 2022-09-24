@@ -1,0 +1,7 @@
+<div class="profile">
+  <ng-container *ngIf="user$ | async as user">
+    <h1>{{ user.fullname!.firstname }}</h1>
+    <h1>{{ user.email! }}</h1>
+    <h1>{{ user.balance! }}</h1>
+  </ng-container>
+</div>
