@@ -112,7 +112,12 @@
             <p class="error">Passwords don't match</p>
           </ng-container>
         </div>
+        
       </div>
+
+      <ng-container *ngIf="errorMessage$ | async">
+        <p class="error server-error">{{errorMessage$ | async}}</p>
+      </ng-container>
       <button
         [disabled]="
           registerForm.invalid ||

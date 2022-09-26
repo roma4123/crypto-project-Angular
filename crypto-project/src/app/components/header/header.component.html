@@ -11,18 +11,19 @@
       </nav>
       <nav class="sign-btns">
         <ul>
-          <ng-container>
+          <ng-container *ngIf="isLogged$ | async; else notloggedin">
             <li><a routerLink="/profile">Profile</a></li>
             <li><a (click)="logOut()">Sign Out</a></li>
-            <li>
+          </ng-container>
+
+          <ng-template #notloggedin
+            ><li>
               <a routerLink="/signin">Sign in</a>
             </li>
             <li>
               <a routerLink="/register">Sign up</a>
             </li>
-          </ng-container>
-
-          <ng-template #loggedin> </ng-template>
+          </ng-template>
         </ul>
       </nav>
     </div>

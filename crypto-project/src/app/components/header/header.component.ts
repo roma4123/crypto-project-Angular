@@ -20,10 +20,7 @@ export class HeaderComponent implements OnInit {
 
   public logOut(): void {
     this.tokenService.logOut();
-    // setTimeout(() => {}, 1000);
-    // window.location.reload();
-
-    this.router.navigateByUrl('/main');
+    window.location.reload();
   }
 
   isLogged$: BehaviorSubject<boolean> = new BehaviorSubject(false);

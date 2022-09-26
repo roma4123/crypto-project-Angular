@@ -62,12 +62,15 @@ export class DatabaseService {
       )
       .pipe(
         tap((info) => {
+         
           this.getSpecificUser(info.localId).subscribe({
             next: (v) => {
-              this.tokenService.saveToken(info.idToken),
+              
                 this.tokenService.saveUser(v);
-              this.isLogged$.next(!!this.tokenService.getToken());
-              this.user$.next(this.tokenService.getUser());
+                this.user$.next(this.tokenService.getUser());
+                this.tokenService.saveToken(info.idToken),
+                this.isLogged$.next(!!this.tokenService.getToken());
+                window.location.reload();
             },
           });
         })

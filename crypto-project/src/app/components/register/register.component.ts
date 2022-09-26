@@ -2,7 +2,7 @@ import { formatCurrency } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { catchError, of, tap } from 'rxjs';
+import { BehaviorSubject, catchError, of, tap } from 'rxjs';
 import {
   IPasswordsFormgroup,
   IRegisteredUser,
@@ -18,7 +18,7 @@ import { matchValidator } from 'src/app/validators/password.validator';
 })
 export class RegisterComponent implements OnInit {
   showPassword = false;
-
+  errorMessage$: BehaviorSubject<string> = new BehaviorSubject('');
   registerForm: FormGroup<IRegisterForm> = new FormGroup(
     {
       fullname: new FormGroup({
@@ -78,13 +78,16 @@ export class RegisterComponent implements OnInit {
     this.database
       .signUp(email as string, password as string, userBody)
       .pipe(
+        tap((v) => this.registerForm.reset()),
         catchError((e) => {
           console.log(e);
+          this.errorMessage$.next(e.error.error.message);
+          setTimeout(() => {
+            this.errorMessage$.next('');
+          }, 3000);
           return of(null);
         })
       )
       .subscribe();
-
-    this.registerForm.reset();
   }
 }

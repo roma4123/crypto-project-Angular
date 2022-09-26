@@ -10,13 +10,11 @@ import { DatabaseService } from 'src/app/services/database/database.service';
 })
 export class ProfileComponent implements OnInit {
   constructor(private databaseService: DatabaseService) {}
-
   user$: BehaviorSubject<IRegisteredUser> = new BehaviorSubject(
     {} as IRegisteredUser
   );
 
   ngOnInit(): void {
     this.user$ = this.databaseService.user$;
-    console.log(this.user$.getValue());
   }
 }
