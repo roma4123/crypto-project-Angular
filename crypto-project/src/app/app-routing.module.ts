@@ -7,6 +7,8 @@ import { PriceDashboardComponent } from './components/prices/price-dashboard/pri
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import { AuthGuard } from './guards/auth.guard';
+import { SigninGuard } from './guards/signin.guard';
 
 const routes: Routes = [
   {
@@ -37,10 +39,12 @@ const routes: Routes = [
   {
     path: 'signin',
     component: SignInComponent,
+    canActivate: [SigninGuard],
   },
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

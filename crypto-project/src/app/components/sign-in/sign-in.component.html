@@ -17,6 +17,9 @@
           formControlName="password"
           placeholder="Password"
         />
+        <ng-container *ngIf="errorMessage$ | async as error">
+          <p class="error">{{ error }}</p>
+        </ng-container>
       </div>
       <button (click)="logIn()">Sign in</button>
     </form>

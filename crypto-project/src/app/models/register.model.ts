@@ -1,4 +1,5 @@
 import { FormControl, FormGroup } from '@angular/forms';
+
 export interface IFullnameFormgroup {
   firstname: FormControl<string>;
   lastname: FormControl<string>;
@@ -20,27 +21,27 @@ export interface ISigninform {
   password: FormControl<string>;
 }
 
-export interface IAuthResponseData{
+export interface IAuthResponseData {
   kind: string;
   idToken: string;
   email: string;
   refereshToken: string;
   expaiersIn: string;
   localId: string;
-  registered?: boolean
+  registered?: boolean;
 }
 
-export interface ISigninUser{
+export interface ISigninUser {
   email: string;
   password: string;
 }
 
-export interface IRegisteredUser{
+export interface IRegisteredUser {
   email: string;
   fullname: {
     firstname: string;
     lastname: string;
-  }
-  balance: number;  
+  };
+  balance: number;
   localId?: string;
 }

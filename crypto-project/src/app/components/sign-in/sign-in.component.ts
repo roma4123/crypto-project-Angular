@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { catchError, of, tap } from 'rxjs';
+import { BehaviorSubject, catchError, of, tap } from 'rxjs';
 import { ISigninform } from 'src/app/models/register.model';
 import { DatabaseService } from 'src/app/services/database/database.service';
 
@@ -27,6 +27,8 @@ export class SignInComponent implements OnInit {
     private router: Router
   ) {}
 
+  errorMessage$: BehaviorSubject<string> = new BehaviorSubject('');
+
   ngOnInit(): void {
     // this.databaseService.getUsers().subscribe((v) => console.log(v));
   }
@@ -38,16 +40,19 @@ export class SignInComponent implements OnInit {
     this.databaseService
       .login(email as string, password as string)
       .pipe(
-        tap((v) => console.log(v)),
+        tap((v) => {
+          console.log(v);
+          this.router.navigateByUrl('/profile');
+        }),
         catchError((e) => {
           console.log(e);
+          this.errorMessage$.next(e.error.error.message);
+          setTimeout(() => {
+            this.errorMessage$.next('');
+          }, 3000);
           return of(null);
         })
       )
-      .subscribe({
-        next: (v) => {
-          this.router.navigateByUrl('/profile');
-        },
-      });
+      .subscribe();
   }
 }

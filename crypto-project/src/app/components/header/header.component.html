@@ -11,12 +11,18 @@
       </nav>
       <nav class="sign-btns">
         <ul>
-          <li>
-            <a routerLink="/signin">Sign in</a>
-          </li>
-          <li>
-            <a routerLink="/register">Sign up</a>
-          </li>
+          <ng-container>
+            <li><a routerLink="/profile">Profile</a></li>
+            <li><a (click)="logOut()">Sign Out</a></li>
+            <li>
+              <a routerLink="/signin">Sign in</a>
+            </li>
+            <li>
+              <a routerLink="/register">Sign up</a>
+            </li>
+          </ng-container>
+
+          <ng-template #loggedin> </ng-template>
         </ul>
       </nav>
     </div>

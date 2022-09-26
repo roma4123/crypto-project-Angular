@@ -6,18 +6,24 @@ import {
   IAuthResponseData,
   IRegisteredUser,
 } from 'src/app/models/register.model';
+import { TokenStorageService } from '../tokenStorage/token-storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DatabaseService {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private tokenService: TokenStorageService
+  ) {}
 
-  user$: BehaviorSubject<IRegisteredUser> = new BehaviorSubject({
-    email: '',
-    fullname: { firstname: '', lastname: '' },
-    balance: 0,
-  } as IRegisteredUser);
+  user$: BehaviorSubject<IRegisteredUser> = new BehaviorSubject(
+    this.tokenService.getUser()
+  );
+  isLogged$: BehaviorSubject<boolean> = new BehaviorSubject(
+    !!this.tokenService.getToken()
+  );
 
   private dbUrl =
     'https://angular-crypto-project-default-rtdb.europe-west1.firebasedatabase.app/users.json';
@@ -55,9 +61,14 @@ export class DatabaseService {
         { email: email, password: password, returnSecureToken: true }
       )
       .pipe(
-        tap((v) => {
-          this.getSpecificUser(v.localId).subscribe({
-            next: (v) => this.user$.next(v),
+        tap((info) => {
+          this.getSpecificUser(info.localId).subscribe({
+            next: (v) => {
+              this.tokenService.saveToken(info.idToken),
+                this.tokenService.saveUser(v);
+              this.isLogged$.next(!!this.tokenService.getToken());
+              this.user$.next(this.tokenService.getUser());
+            },
           });
         })
       );

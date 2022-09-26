@@ -29,6 +29,12 @@
 
   form {
     div {
+      .error {
+        font-size: 11px;
+        color: rgb(180, 0, 70);
+        margin-bottom: 3px;
+        line-height: 8px;
+      }
       p {
         margin-bottom: 10px;
       }
