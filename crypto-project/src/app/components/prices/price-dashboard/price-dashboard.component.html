@@ -60,7 +60,13 @@
                   ></polyline>
                 </svg>
               </td>
-              <td><button>Trade</button></td>
+              <td>
+                <button
+                  (click)="getCoin(coin.name, coin.current_price, coin.image)"
+                >
+                  Trade
+                </button>
+              </td>
             </tr>
           </ng-container>
         </ng-container>
@@ -73,6 +79,39 @@
         <button (click)="onClickRight()" mat-button>
           <i class="fa-solid fa-chevron-right"></i>
         </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="showTradeWindow">
+    <div class="tradewrapper">
+      <div class="tradewindow">
+        <form [formGroup]="exchanges">
+          <label>
+            <img [src]="coinsimg" alt="" />
+            <p>{{ coinsname }}</p>
+            <input
+              type="number"
+              formControlName="coin"
+              placeholder="Enter Amount of Value"
+            />
+          </label>
+          <label>
+            <p>USD</p>
+            <input
+              type="number"
+              formControlName="currency"
+              placeholder="Enter Amount of Value"
+            />
+          </label>
+        </form>
+        <p *ngIf="notEnoughMoney" class="error">You don't have enough money</p>
+        <p *ngIf="successMsg" class="success">Exchanged Successfully</p>
+
+        <button class="buy" (click)="ecxhangeNow()">EXCHANGE NOW</button>
+        <div class="close-btn">
+          <button (click)="closeTradeWindow()">X</button>
+        </div>
       </div>
     </div>
   </ng-container>

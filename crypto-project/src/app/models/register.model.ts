@@ -42,6 +42,15 @@ export interface IRegisteredUser {
     firstname: string;
     lastname: string;
   };
-  balance: number;
+  balance: { balance: number; coinBase?: IcoinBase };
   localId?: string;
+}
+
+export interface IcoinBase {
+  [key: string]: number;
+}
+
+export interface IBalance {
+  balance: number;
+  coinBase: IcoinBase;
 }

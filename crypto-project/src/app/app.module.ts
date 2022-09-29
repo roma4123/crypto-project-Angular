@@ -18,6 +18,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RegisterComponent } from './components/register/register.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ForClickDirective } from './for-click.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     RegisterComponent,
     SignInComponent,
     ProfileComponent,
+    ForClickDirective,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,21 @@
-<div class="profile">
+<div class="wrapper">
   <ng-container *ngIf="user$ | async as user">
-    <h1>{{ user.fullname!.firstname }}</h1>
-    <h1>{{ user.email! }}</h1>
-    <h1>{{ user.balance! }}</h1>
+    <div class="card">
+      <div class="fullname">
+        <h1>
+          {{ user.fullname!.firstname }} &nbsp;{{ user.fullname!.lastname }}
+        </h1>
+      </div>
+      <div class="balance">
+        <span>$</span>
+        <h1>{{ user.balance.balance! | number: "1.2-2" }}</h1>
+      </div>
+      <p>Total Balance</p>
+
+      <!-- <h1>{{ user.balance.coinBase.bitcoin! }}</h1> -->
+    </div>
+    <div class="coins">
+      <h1 style="color: red">wda</h1>
+    </div>
   </ng-container>
 </div>
