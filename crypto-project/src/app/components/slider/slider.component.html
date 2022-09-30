@@ -7,5 +7,7 @@
     </div>
   </ng-container>
   <h1>Grow more &nbsp; invest now</h1>
-  <button routerLink="/register">Start the Journey</button>
+  <ng-container *ngIf="!(isLogged$ | async)">
+    <button routerLink="/register">Start the Journey</button>
+  </ng-container>
 </div>

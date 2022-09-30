@@ -5,6 +5,7 @@ import { debounceTime, tap, BehaviorSubject } from 'rxjs';
 import { IBalance, IcoinBase } from 'src/app/models/register.model';
 import { DatabaseService } from 'src/app/services/database/database.service';
 import { TokenStorageService } from 'src/app/services/tokenStorage/token-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-price-dashboard',
@@ -15,7 +16,8 @@ export class PriceDashboardComponent implements OnInit, OnDestroy {
   constructor(
     private priceService: PriceService,
     private database: DatabaseService,
-    private tokenService: TokenStorageService
+    private tokenService: TokenStorageService,
+    private router: Router
   ) {}
   ngOnDestroy(): void {}
 
@@ -28,6 +30,9 @@ export class PriceDashboardComponent implements OnInit, OnDestroy {
   pageIndex = 10;
   pageSize = 1;
   filterTerm!: string;
+
+  /// is logged in?
+  isLogged$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   //// pop window
 
@@ -51,6 +56,7 @@ export class PriceDashboardComponent implements OnInit, OnDestroy {
     this.registerValueChanges();
 
     this.balance = this.database.balance;
+    this.isLogged$ = this.database.isLogged$;
   }
 
   public onClickLeft() {
@@ -73,6 +79,10 @@ export class PriceDashboardComponent implements OnInit, OnDestroy {
   }
 
   public getCoin(name: string, price: number, img: string) {
+    if (!this.isLogged$.getValue()) {
+      this.router.navigateByUrl('/signin');
+      return;
+    }
     this.showTradeWindow = true;
     this.coinsname = name;
     this.coinsimg = img;

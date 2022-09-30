@@ -6,6 +6,8 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { DatabaseService } from 'src/app/services/database/database.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-slider',
@@ -19,13 +21,15 @@ import {
   ],
 })
 export class SliderComponent implements OnInit {
-  constructor() {}
+  constructor(private database: DatabaseService) {}
   currentSlideIndex: number = 0;
+  isLogged$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   ngOnInit(): void {
     setInterval(() => {
       this.currentSlideIndex = ++this.currentSlideIndex % this.items.length;
     }, 4000);
+    this.isLogged$ = this.database.isLogged$;
   }
   items: any[] = [
     '../../../assets/slider-pic-5.png',

@@ -35,6 +35,7 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+    canActivate: [SigninGuard],
   },
   {
     path: 'signin',

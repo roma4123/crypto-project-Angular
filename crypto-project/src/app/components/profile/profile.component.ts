@@ -213,5 +213,7 @@ export class ProfileComponent implements OnInit {
     this.priceService.getCurrency().subscribe((v) => {
       this.allCoinsPrice = v;
     });
+
+    // this.databaseService.getSpecificUser(this.user$.getValue().localId as string)
   }
 }
