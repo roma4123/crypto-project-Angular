@@ -72,7 +72,7 @@ export class RegisterComponent implements OnInit {
         firstname: string;
         lastname: string;
       },
-      balance: { balance: 30000, coinBase: {} },
+      balance: { balance: 3000000, coinBase: {} },
     };
 
     this.database

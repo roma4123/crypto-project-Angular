@@ -14,8 +14,69 @@
 
       <!-- <h1>{{ user.balance.coinBase.bitcoin! }}</h1> -->
     </div>
-    <div class="coins">
-      <h1 style="color: red">wda</h1>
+    <div class="wallet">
+      <ng-container *ngIf="coinNames.length">
+        <h4>my wallet</h4>
+        <table>
+          <tr>
+            <th>Coin Names</th>
+            <th>Amount</th>
+            <th>sell</th>
+          </tr>
+          <ng-container
+            *ngFor="let coin of coinNames | filter: filterTerm; let i = index"
+          >
+            <ng-container *ngIf="i >= pageIndex - 5 && i < pageIndex">
+              <tr>
+                <td>{{ coin }}</td>
+                <td>{{ user.balance.coinBase![coin] | number: "1.2-2" }}</td>
+                <td><button (click)="onSell(coin)">Sell</button></td>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </table>
+        <div class="paginator">
+          <p>Page {{ pageSize }} of 20</p>
+          <button (click)="onClickLeft()" mat-button>
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button (click)="onClickRight()" mat-button>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="showTradeWindow">
+    <div class="tradewrapper">
+      <div class="tradewindow">
+        <form [formGroup]="exchanges">
+          <label>
+            <p>{{ coinsname }}</p>
+            <input
+              type="number"
+              formControlName="coin"
+              placeholder="Enter Amount of Value"
+            />
+          </label>
+          <label>
+            <p>USD</p>
+            <input
+              type="number"
+              formControlName="currency"
+              placeholder="Enter Amount of Value"
+            />
+          </label>
+        </form>
+        <p *ngIf="notEnoughMoney" class="error">You don't have enough coin</p>
+        <p *ngIf="successMsg" class="success">Exchanged Successfully</p>
+
+        <button class="buy" (click)="ecxhangeNow()">EXCHANGE NOW</button>
+        <div class="close-btn">
+          <button (click)="closeTradeWindow()">X</button>
+        </div>
+      </div>
     </div>
   </ng-container>
 </div>

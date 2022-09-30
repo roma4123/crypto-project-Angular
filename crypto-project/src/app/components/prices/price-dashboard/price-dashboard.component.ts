@@ -37,14 +37,10 @@ export class PriceDashboardComponent implements OnInit, OnDestroy {
   price!: number;
 
   ////balance
-
   balance: BehaviorSubject<IBalance> = new BehaviorSubject({} as IBalance);
-
   ///enough money to buy?
   notEnoughMoney = false;
-
   /////success purchase
-
   successMsg = false;
 
   ngOnInit(): void {
@@ -119,7 +115,7 @@ export class PriceDashboardComponent implements OnInit, OnDestroy {
 
   public ecxhangeNow() {
     if (
-      this.balance.getValue().balance > this.exchanges.get('currency')?.value
+      this.balance.getValue().balance >= this.exchanges.get('currency')?.value
     ) {
       let dataForbase: IBalance = this.saveBalance() as IBalance;
       this.database

@@ -1,18 +1,26 @@
 .wrapper {
-  width: 90%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),
+    url(../../../assets/profile-bg.png);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  padding-top: 120px;
+  width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   // background-color: red;
   margin: 0 auto;
 
   .card {
-    // margin-top: 20px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     // gap: 10px;
     padding: 60px 50px;
-    margin-top: 120px;
+    // margin-top: 120px;
     width: 40%;
     height: 250px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
@@ -37,7 +45,7 @@
       content: "";
       position: absolute;
       background: inherit;
-      top: 8px;
+      top: 4px;
       left: 50%;
       width: 95%;
       height: 100%;
@@ -78,6 +86,209 @@
         letter-spacing: 0.4px;
         font-size: 29px;
         margin-bottom: 45px;
+      }
+    }
+  }
+
+  .wallet {
+    width: 50%;
+    margin-left: 50px;
+
+    h4 {
+      color: #1199fa;
+      font-size: 20px;
+      line-height: 115%;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    table {
+      // border-radius: 2%;
+      width: 80%;
+      background-color: rgba(255, 255, 255, 0.8);
+      text-indent: initial;
+      border-spacing: 2px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0b1426;
+      button {
+        color: #fff;
+
+        background-color: #1199fa;
+        cursor: pointer;
+        border: 1px solid transparent;
+        //   width: 100%;
+        font-weight: bold;
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+        line-height: 1.2;
+        padding: 5px 16px;
+        border-radius: 30px;
+        &:hover {
+          background-color: #36a4f3;
+        }
+      }
+
+      tr {
+        cursor: pointer;
+        width: 100%;
+        height: 42.5px;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1.5fr;
+        place-items: center;
+        // border-bottom: 1px solid #red;
+        &:hover {
+          background-color: rgba(17, 153, 250, 0.12);
+        }
+
+        th {
+          text-transform: uppercase;
+          font-size: 13px;
+          font-weight: 600;
+          color: #020306;
+        }
+      }
+    }
+
+    .paginator {
+      width: 80%;
+      color: #0b1426;
+      background-color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+      height: 48px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      border-bottom: 1px solid #c9cfdd;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.tradewrapper {
+  // display: none;
+  z-index: 1;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  .tradewindow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 10px;
+    background-color: #0b1429;
+    // z-index: 3;
+    width: 500px;
+    height: 400px;
+
+    .error {
+      font-size: 14px;
+      color: rgb(180, 0, 70);
+      margin-bottom: 1px;
+      line-height: 8px;
+    }
+    .success {
+      font-size: 15px;
+      color: green;
+      margin-bottom: 1px;
+      line-height: 8px;
+      font-weight: 500;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        width: 45px;
+        height: 45px;
+      }
+
+      p {
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 15px;
+        margin-bottom: 8px;
+        text-align: center;
+        letter-spacing: 0.02rem;
+        font-weight: 500;
+      }
+
+      input {
+        margin-bottom: 24px;
+        width: 362px;
+        height: 40px;
+
+        padding: 16px;
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 400px;
+        color: #b5b0b0;
+        border: 1px solid rgba(193, 196, 201, 0.36);
+        border-radius: 8px;
+        background-color: #060b18;
+        transition: ease 0.2s;
+        &:focus {
+          border-color: #0058aa;
+          outline: none;
+          box-shadow: 0 0 5px 0 #0058aa;
+          background-color: #060b12;
+          opacity: 0.92;
+        }
+        &:hover {
+          background-color: #060b12;
+          opacity: 0.98;
+        }
+      }
+    }
+
+    .close-btn {
+      z-index: 4;
+      position: absolute;
+      top: 4%;
+      right: 3%;
+      button {
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+        height: 20px;
+        width: 23px;
+      }
+    }
+
+    .buy {
+      font-size: 13px;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+      margin: 29px 0 0;
+      // text-align: center;
+      height: 35px;
+      width: 120px;
+      border-radius: 4px;
+      color: #0d6efd;
+      border-color: #0d6efd;
+      cursor: pointer;
+      border: 1px solid;
+      background-color: transparent;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out;
+      // box-shadow 0.15s ease-in-out;
+
+      &:hover {
+        background-color: #0d6efd;
+        border-color: transparent;
+        color: rgb(244, 244, 244);
       }
     }
   }
