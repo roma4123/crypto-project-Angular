@@ -8,7 +8,7 @@ import { INft } from 'src/app/models/nft.models';
 export class NftService {
   private nftArr$: BehaviorSubject<INft[]> = new BehaviorSubject([
     {
-      title: 'EmoHead #1004: Happy Aryiah',
+      title: 'EmoHead: Happy Aryiah',
       price: 34.96,
       img_src:
         'https://i.seadn.io/gae/eosmk768gm4WkMS8XT-FE3qP4deKcArKGqHIrRkd6I7EyKzjtekUwIuoMKtz5pyLCxW7vo6acNCzNHBMNb2PWEqg0rL6tKZ2fwgr?w=500&auto=format',

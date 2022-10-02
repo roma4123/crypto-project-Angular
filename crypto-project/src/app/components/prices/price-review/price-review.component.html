@@ -32,7 +32,7 @@
               <h5>${{ price.current_price | number: "1.2-2" }}</h5>
             </div>
 
-            <div class="percent">
+            <div class="percent for-mobile">
               <p
                 [ngClass]="
                   price.market_cap_change_percentage_24h > 0 ? 'high' : 'low'
@@ -42,8 +42,10 @@
               </p>
             </div>
           </div>
-          <p class="volume">${{ price.market_cap | number: "2.0-2" }}</p>
-          <div class="chart">
+          <p class="volume for-mobile">
+            ${{ price.market_cap | number: "2.0-2" }}
+          </p>
+          <div class="chart for-mobile">
             <svg>
               <polyline
                 [ngClass]="

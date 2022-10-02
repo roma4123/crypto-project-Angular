@@ -77,3 +77,31 @@
     }
   }
 }
+
+// @media only screen and (min-width: 1128px) {
+//   .navbar-container {
+//     .content {
+//       width: 1080px;
+//     }
+//   }
+// }
+
+@media screen and (min-width: 768px) and (max-width: 1128px) {
+  .navbar-container {
+    .content {
+      width: 90%;
+    }
+  }
+}
+
+@media screen and (min-width: 350px) and (max-width: 767px) {
+  .navbar-container {
+    .content {
+      width: 90%;
+
+      .nav-lang {
+        display: none;
+      }
+    }
+  }
+}

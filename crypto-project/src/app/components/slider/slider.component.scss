@@ -75,3 +75,9 @@ button {
     background-color: rgba(0, 0, 0, 0.8);
   }
 }
+
+@media screen and (min-width: 350px) and (max-width: 767px) {
+  .slider {
+    display: none;
+  }
+}

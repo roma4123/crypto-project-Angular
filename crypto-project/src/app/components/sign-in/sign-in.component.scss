@@ -93,3 +93,34 @@
     }
   }
 }
+
+///mobile
+
+@media screen and (min-width: 350px) and (max-width: 767px) {
+  .wrapper {
+    padding: 20px;
+    .container {
+      height: 364px;
+
+      // width: 90%;
+      min-width: 320px;
+      max-width: 400px;
+      padding: 10px 10px 0 10px;
+    }
+
+    h1 {
+      font-size: 22px;
+      padding: 10px;
+    }
+    form {
+      width: 94%;
+
+      input {
+        width: 100%;
+      }
+    }
+    button {
+      width: 100%;
+    }
+  }
+}

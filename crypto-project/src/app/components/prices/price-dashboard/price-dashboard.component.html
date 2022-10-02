@@ -10,14 +10,14 @@
       />
       <table>
         <tr>
-          <th class="th1"></th>
+          <th id="not-for-mobile" class="th1"></th>
           <th class="th2">#</th>
           <th class="th3">Name</th>
           <th class="th4">Price</th>
           <th class="th5">24H CHANGE</th>
           <th class="th6">24H VOLUME</th>
-          <th class="th7">MARKET CUP</th>
-          <th class="th8">CHART</th>
+          <th id="not-for-mobile" class="th7">MARKET CUP</th>
+          <th id="not-for-mobile" class="th8">CHART</th>
           <th class="th9"></th>
         </tr>
         <ng-container
@@ -25,7 +25,7 @@
         >
           <ng-container *ngIf="i >= pageIndex - 10 && i < pageIndex">
             <tr class="detail-rows">
-              <td><i class="far fa-star"></i></td>
+              <td id="not-for-mobile"><i class="far fa-star"></i></td>
               <td>{{ i + 1 }}</td>
               <td class="th3">
                 <div class="info">
@@ -46,8 +46,10 @@
                 {{ coin.price_change_percentage_24h | number: "1.2-2" }}%
               </td>
               <td>${{ coin.total_volume | numberSuffix: 2 }}</td>
-              <td>${{ coin.market_cap | numberSuffix: 2 }}</td>
-              <td class="chart">
+              <td id="not-for-mobile">
+                ${{ coin.market_cap | numberSuffix: 2 }}
+              </td>
+              <td class="chart" id="not-for-mobile">
                 <svg>
                   <polyline
                     [ngClass]="

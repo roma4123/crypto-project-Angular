@@ -283,3 +283,61 @@
     }
   }
 }
+
+///tablet
+@media screen and (min-width: 768px) and (max-width: 1128px) {
+  .wrapper {
+    .content {
+      width: 95%;
+    }
+  }
+}
+
+///mobile
+@media screen and (min-width: 350px) and (max-width: 767px) {
+  .wrapper {
+    .content {
+      width: 98%;
+
+      input {
+        width: 60%;
+      }
+      h1 {
+        font-size: 18px;
+      }
+    }
+    table {
+      #not-for-mobile {
+        display: none;
+      }
+      width: 100%;
+      font-size: 12px;
+      .info {
+        img {
+          width: 16px;
+          height: 16px;
+          margin-right: 6px;
+        }
+      }
+
+      tr {
+        grid-template-columns: 0.4fr 1.5fr repeat(3, 1.4fr) 1.5fr;
+
+        th {
+          font-size: 11px;
+        }
+
+        th {
+          font-size: 11px;
+        }
+        p {
+          font-size: 11px;
+
+          .symbol {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
