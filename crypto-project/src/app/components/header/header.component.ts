@@ -23,6 +23,12 @@ export class HeaderComponent implements OnInit {
     window.location.reload();
   }
 
+  showMenu = false;
+
+  public mobileMenu() {
+    this.showMenu = true;
+  }
+
   isLogged$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(

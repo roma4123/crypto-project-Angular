@@ -46,6 +46,10 @@
         }
       }
 
+      .mobile-nav {
+        display: none;
+      }
+
       h2 {
         margin-left: 30px;
         color: $nav-text-color;
@@ -75,6 +79,9 @@
         }
       }
     }
+    .burger-menu {
+      display: none;
+    }
   }
 }
 
@@ -94,13 +101,96 @@
   }
 }
 
-@media screen and (min-width: 350px) and (max-width: 767px) {
+@media screen and (min-width: 350px) and (max-width: 1128px) {
   .navbar-container {
     .content {
       width: 90%;
 
       .nav-lang {
-        display: none;
+        height: 100%;
+        width: 100%;
+        z-index: 99;
+        background-color: $main-bg-color;
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        top: 0;
+        right: 0;
+        display: flex;
+        transform: translateX(-100%);
+        transition: all ease-in-out 0.4s;
+        .main-nav {
+          margin-top: 210px;
+          width: 100%;
+          ul {
+            li {
+              margin-right: 0px;
+            }
+          }
+        }
+        .sign-btns {
+          width: 100%;
+          margin-left: 0px;
+          margin-top: 40px;
+          ul {
+            li {
+              margin-right: 0px;
+            }
+          }
+        }
+        nav {
+          ul {
+            display: flex;
+            flex-direction: column;
+            &:focus {
+              background-color: rgba(17, 153, 250);
+            }
+            li {
+              a {
+                letter-spacing: 1.5px;
+                width: 100%;
+                padding: 10px 0;
+                font-size: 30px;
+                font-weight: bold;
+                display: inline-block;
+              }
+            }
+          }
+        }
+        .mobile-nav {
+          display: block;
+          position: absolute;
+          top: 15px;
+          right: 20px;
+          display: flex;
+          justify-content: space-between;
+          width: 90%;
+
+          h1 {
+            padding: 5px;
+          }
+
+          .close-menu {
+            font-size: 35px;
+            // padding: 8px;
+            padding: 5px;
+          }
+        }
+        &.mobileMenu {
+          transform: translateX(0);
+        }
+        &.none {
+          display: flex;
+          transform: translateX(-100%);
+        }
+      }
+
+      .burger-menu {
+        display: block;
+        font-size: 30px;
+        padding: 3px;
+        color: $nav-text-color;
       }
     }
   }

@@ -1,16 +1,26 @@
 <div class="navbar-container">
   <div class="content">
     <h1 (click)="scroll()" routerLink="/main">TMTK <span>.</span></h1>
-    <div class="nav-lang">
-      <nav>
-        <ul>
+    <div
+      class="nav-lang"
+      [ngClass]="{ mobileMenu: showMenu === true, none: showMenu === false }"
+    >
+      <div class="mobile-nav">
+        <h1>TMTK <span>.</span></h1>
+        <i (click)="showMenu = false" class="fa-solid fa-xmark close-menu"></i>
+      </div>
+
+      <nav class="main-nav">
+        <ul (click)="showMenu = false">
           <li><a routerLink="/nfts" routerLinkActive="active">NFT</a></li>
-          <li><a routerLink="/prices" routerLinkActive="active">Prices</a></li>
+          <li>
+            <a routerLink="/prices" routerLinkActive="active">Prices</a>
+          </li>
           <li><a routerLink="/news" routerLinkActive="active">News</a></li>
         </ul>
       </nav>
       <nav class="sign-btns">
-        <ul>
+        <ul (click)="showMenu = false">
           <ng-container *ngIf="isLogged$ | async; else notloggedin">
             <li><a routerLink="/profile">Profile</a></li>
             <li><a (click)="logOut()">Sign Out</a></li>
@@ -26,6 +36,9 @@
           </ng-template>
         </ul>
       </nav>
+    </div>
+    <div (click)="mobileMenu()" class="burger-menu">
+      <i class="fa-solid fa-bars"></i>
     </div>
   </div>
 </div>
