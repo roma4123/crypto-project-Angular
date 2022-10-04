@@ -12,7 +12,7 @@ export class NewsComponent implements OnInit, OnDestroy {
   constructor(private newsService: NewsService) {}
 
   articles: IArticles[] = [];
-
+  newsError = '';
   maxPost = 5;
 
   public showMore(): void {
@@ -22,9 +22,18 @@ export class NewsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     //aos
     Aos.init();
-    this.newsService.getNews().subscribe((v) => {
-      this.articles = v.articles;
-      // console.log(v.articles);
+    this.newsService.getNews().subscribe({
+      next: (v) => {
+        this.articles = v.articles;
+        this.newsError = '';
+      },
+      error: (err) => {
+        if (err.error.code === 'corsNotAllowed') {
+          this.newsError = err.error.message;
+        } else {
+          this.newsError = 'Oops... something went wrong';
+        }
+      },
     });
   }
 

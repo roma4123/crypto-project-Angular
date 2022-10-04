@@ -1,4 +1,8 @@
 <div class="wrapper">
+  <ng-container *ngIf="newsError">
+    <h1 class="newsError">{{ newsError }}</h1>
+  </ng-container>
+
   <ng-container *ngIf="articles?.length">
     <div class="container">
       <h1>WHAT'S TRENDING</h1>

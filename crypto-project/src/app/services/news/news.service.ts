@@ -19,7 +19,7 @@ export class NewsService {
 
   public getNews(): Observable<INews> {
     return this.http.get<INews>(
-      ` https://newsapi.org/v2/everything?q=(crypto AND bitcoin)&from=${this.newDate}&sortBy=publishedAt&apiKey=18e60b6c09fc4fd3bfc1ed7877311162`
+      ` https://newsapi.org/v2/everything?q=(crypto AND bitcoin)&from=${this.newDate}&sortBy=publishedAt&apiKey=`
     );
   }
 }
